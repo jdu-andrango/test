@@ -4,6 +4,7 @@ import { NotasEtiquetasService } from '../../core/notas-etiquetas.service';
 @Component({
   selector: 'app-lista-notas',
   templateUrl: './lista.component.html',
+  styleUrls: ['./lista.component.css']
 })
 export class ListaNotasComponent implements OnInit {
   notas: any[] = [];
