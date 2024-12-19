@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 // import { ListaNotasComponent } from './etiquetas/lista/lista.component';
 import { CommonModule } from '@angular/common';
 import { ListaComponent } from './etiquetas/lista/lista.component';
+import { ListaNotasComponent } from './notas/lista/lista.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListaComponent
+    ListaComponent,
+    ListaNotasComponent
   ],
   imports: [
     BrowserModule,

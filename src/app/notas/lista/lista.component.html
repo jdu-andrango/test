@@ -1,8 +1,56 @@
-<h2>Notas</h2>
-<ul>
-  <li *ngFor="let nota of notas">
-    <h3>{{ nota.titulo }}</h3>
-    <p>{{ nota.descripcion }}</p>
-    <button (click)="eliminarNota(nota.id)">Eliminar</button>
-  </li>
-</ul>
+<div class="container">
+  <h1>Lista de Notas</h1>
+
+  <!-- Mostrar error si ocurre un problema -->
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Formulario para crear nueva nota -->
+  <div class="form">
+    <h3>Crear Nueva Nota</h3>
+    <input type="text" [(ngModel)]="nuevaNota.titulo" placeholder="Título" />
+    <textarea [(ngModel)]="nuevaNota.contenido" placeholder="Contenido"></textarea>
+    <input type="date" [(ngModel)]="nuevaNota.fechaCreacion" placeholder="Fecha de creación" />
+    
+    <!-- Selección de etiqueta -->
+    <label for="etiqueta">Etiqueta:</label>
+    <select [(ngModel)]="nuevaNota.etiqueta.id" name="etiqueta" id="etiqueta">
+      <option value="" disabled>Selecciona una etiqueta</option>
+      <option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.id">{{ etiqueta.nombre }}</option>
+    </select>
+
+    <button (click)="crearNota()">Crear Nota</button>
+  </div>
+
+  <!-- Listado de notas -->
+  <ul *ngIf="notas.length > 0; else noNotas">
+    <li *ngFor="let nota of notas">
+      <strong>{{ nota.titulo }}</strong> - {{ nota.contenido }} 
+      <span *ngIf="nota.etiqueta">{{ nota.etiqueta.nombre }}</span>
+      <button (click)="seleccionarNota(nota)">Editar</button>
+      <button (click)="eliminarNota(nota.id)">Eliminar</button>
+    </li>
+  </ul>
+
+  <!-- Mostrar mensaje si no hay notas -->
+  <ng-template #noNotas>
+    <p>No hay notas disponibles.</p>
+  </ng-template>
+
+  <!-- Formulario para actualizar nota -->
+  <div *ngIf="notaSeleccionada" class="form">
+    <h3>Actualizar Nota</h3>
+    <input type="text" [(ngModel)]="notaSeleccionada.titulo" placeholder="Título" />
+    <textarea [(ngModel)]="notaSeleccionada.contenido" placeholder="Contenido"></textarea>
+    <input type="date" [(ngModel)]="notaSeleccionada.fechaActualizacion" placeholder="Fecha de actualización" />
+    
+    <!-- Selección de etiqueta -->
+    <select [(ngModel)]="notaSeleccionada.etiqueta.id" name="etiqueta" id="etiqueta">
+      <option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.id">{{ etiqueta.nombre }}</option>
+    </select>
+
+    <button (click)="actualizarNota()">Guardar</button>
+    <button (click)="cancelarEdicion()">Cancelar</button>
+  </div>
+</div>

@@ -9,7 +9,6 @@ import { FormularioComponent } from '../etiquetas/formulario/formulario.componen
 
 @NgModule({
   declarations: [
-    ListaNotasComponent,
     FormularioNotasComponent
   ],
   imports: [
