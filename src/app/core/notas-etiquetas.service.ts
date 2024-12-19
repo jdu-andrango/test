@@ -39,10 +39,10 @@ export class NotasEtiquetasService {
   }
 
   actualizarNota(id: number, nota: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/notas${id}`, nota);
+    return this.http.put(`${this.baseUrl}/notas/${id}`, nota);
   }
 
   eliminarNota(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/notas${id}`);
+    return this.http.delete(`${this.baseUrl}/notas/${id}`);
   }
 }

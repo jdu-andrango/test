@@ -4,7 +4,6 @@ import { NotasEtiquetasService } from '../../core/notas-etiquetas.service';
 @Component({
   selector: 'app-lista-notas',
   templateUrl: './lista.component.html',
-  // styleUrls: ['./lista-notas.component.css']
 })
 export class ListaNotasComponent implements OnInit {
   notas: any[] = [];
@@ -78,6 +77,12 @@ export class ListaNotasComponent implements OnInit {
       return;
     }
 
+    // Verificar que la etiqueta también tiene un id
+    if (!this.notaSeleccionada.etiqueta || !this.notaSeleccionada.etiqueta.id) {
+      this.error = 'Por favor, selecciona una etiqueta para la nota';
+      return;
+    }
+
     this.service.actualizarNota(this.notaSeleccionada.id, this.notaSeleccionada).subscribe({
       next: () => {
         this.cargarNotas();
@@ -92,6 +97,11 @@ export class ListaNotasComponent implements OnInit {
 
   // Eliminar una nota
   eliminarNota(id: number) {
+    if (!id) {
+      this.error = 'No se puede eliminar la nota, id no válido';
+      return;
+    }
+
     this.service.eliminarNota(id).subscribe({
       next: () => {
         this.cargarNotas();
@@ -113,4 +123,3 @@ export class ListaNotasComponent implements OnInit {
     this.notaSeleccionada = null;
   }
 }
-

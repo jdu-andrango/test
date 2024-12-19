@@ -12,7 +12,7 @@
     <input type="text" [(ngModel)]="nuevaNota.titulo" placeholder="Título" />
     <textarea [(ngModel)]="nuevaNota.contenido" placeholder="Contenido"></textarea>
     <input type="date" [(ngModel)]="nuevaNota.fechaCreacion" placeholder="Fecha de creación" />
-    
+
     <!-- Selección de etiqueta -->
     <label for="etiqueta">Etiqueta:</label>
     <select [(ngModel)]="nuevaNota.etiqueta.id" name="etiqueta" id="etiqueta">
@@ -44,8 +44,9 @@
     <input type="text" [(ngModel)]="notaSeleccionada.titulo" placeholder="Título" />
     <textarea [(ngModel)]="notaSeleccionada.contenido" placeholder="Contenido"></textarea>
     <input type="date" [(ngModel)]="notaSeleccionada.fechaActualizacion" placeholder="Fecha de actualización" />
-    
+
     <!-- Selección de etiqueta -->
+    <label for="etiqueta">Etiqueta:</label>
     <select [(ngModel)]="notaSeleccionada.etiqueta.id" name="etiqueta" id="etiqueta">
       <option *ngFor="let etiqueta of etiquetas" [value]="etiqueta.id">{{ etiqueta.nombre }}</option>
     </select>
