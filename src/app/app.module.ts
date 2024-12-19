@@ -9,12 +9,16 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ListaComponent } from './etiquetas/lista/lista.component';
 import { ListaNotasComponent } from './notas/lista/lista.component';
+import { HomeComponent } from './home/home.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaComponent,
-    ListaNotasComponent
+    ListaNotasComponent,
+    HomeComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

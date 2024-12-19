@@ -1,0 +1,56 @@
+body {
+    background-image: linear-gradient(
+      20deg,
+      hsl(0deg 0% 100%) 1%,
+      hsl(4deg 100% 98%) 39%,
+      hsl(4deg 100% 96%) 47%,
+      hsl(4deg 100% 94%) 50%,
+      hsl(4deg 100% 92%) 51%,
+      hsl(3deg 100% 90%) 51%,
+      hsl(3deg 100% 87%) 50%,
+      hsl(3deg 100% 85%) 49%,
+      hsl(2deg 100% 83%) 49%,
+      hsl(2deg 100% 81%) 50%,
+      hsl(1deg 100% 80%) 53%,
+      hsl(1deg 100% 78%) 61%,
+      hsl(0deg 100% 76%) 99%
+    );
+    /* background-color: aqua; Asegura que haya un color de fondo en caso de no cargar el gradiente */
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.imagen{
+    width: 200px;
+    height: 400px;
+    border: 2px solid black;
+}
+figure{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../..//public/api.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.texto p{
+    text-align: center;
+}
+
+.boton{
+    background-color: aqua;
+    width: 100px;
+    height: 50px;
+}
