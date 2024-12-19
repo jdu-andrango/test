@@ -1,1 +1,42 @@
-<p>lista works!</p>
+<div class="container">
+    <h1>Lista de Etiquetas</h1>
+  
+    <!-- Mostrar error si ocurre un problema -->
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+    </div>
+  
+    <!-- Formulario para crear nueva etiqueta -->
+    <div class="form">
+      <h3>Crear Nueva Etiqueta</h3>
+      <input type="text" [(ngModel)]="nuevaEtiqueta.nombre" placeholder="Nombre" />
+      <input type="text" [(ngModel)]="nuevaEtiqueta.descripcion" placeholder="Descripción" />
+      <input type="color" [(ngModel)]="nuevaEtiqueta.color" />
+      <button (click)="crearEtiqueta()">Crear</button>
+    </div>
+  
+    <!-- Listado de etiquetas -->
+    <ul *ngIf="etiquetas.length > 0; else noEtiquetas">
+      <li *ngFor="let etiqueta of etiquetas" [style.color]="etiqueta.color">
+        <strong>{{ etiqueta.nombre }}</strong>: {{ etiqueta.descripcion }}
+        <button (click)="seleccionarEtiqueta(etiqueta)">Editar</button>
+        <button (click)="eliminarEtiqueta(etiqueta.id)">Eliminar</button>
+      </li>
+    </ul>
+  
+    <!-- Mostrar mensaje si no hay etiquetas -->
+    <ng-template #noEtiquetas>
+      <p>No hay etiquetas disponibles.</p>
+    </ng-template>
+  
+    <!-- Formulario para actualizar etiqueta -->
+    <div *ngIf="etiquetaSeleccionada" class="form">
+      <h3>Actualizar Etiqueta</h3>
+      <input type="text" [(ngModel)]="etiquetaSeleccionada.nombre" placeholder="Nombre" />
+      <input type="text" [(ngModel)]="etiquetaSeleccionada.descripcion" placeholder="Descripción" />
+      <input type="color" [(ngModel)]="etiquetaSeleccionada.color" />
+      <button (click)="actualizarEtiqueta()">Guardar</button>
+      <button (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </div>
+  
