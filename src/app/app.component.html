@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Lista de Etiquetas</h1>
+  
+    <!-- Mostrar error si ocurre un problema -->
+    <div *ngIf="error" class="error-message">
+      <p>{{ error }}</p>
+    </div>
+  
+    <!-- Mostrar las etiquetas obtenidas -->
+    <ul *ngIf="etiquetas.length > 0; else noEtiquetas">
+      <li *ngFor="let etiqueta of etiquetas" [style.color]="etiqueta.color">
+        <strong>{{ etiqueta.nombre }}</strong>: {{ etiqueta.descripcion }}
+      </li>
+    </ul>
+  
+    <!-- Mostrar mensaje si no hay etiquetas -->
+    <ng-template #noEtiquetas>
+      <p>No hay etiquetas disponibles.</p>
+    </ng-template>
+  </div>
+  

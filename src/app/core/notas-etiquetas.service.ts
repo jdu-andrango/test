@@ -6,7 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NotasEtiquetasService {
-  private baseUrl = 'http://161.97.140.245:8282'; // URL del backend
+  private baseUrl = 'http://161.97.140.245:2828'; // URL del backend
+  // private baseUrl = '/api/etiquetas/'; // En lugar de 'http://161.97.140.245:2828'
+
 
   constructor(private http: HttpClient) {}
 
